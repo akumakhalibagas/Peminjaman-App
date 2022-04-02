@@ -1,0 +1,31 @@
+aside.main-sidebar
+    section.sidebar
+        .user-panel 
+            .pull-left.image 
+                img(src='/adminlte/dist/img/jang.png',alt='User Image').img-circle  
+            .pull-left.info 
+                p Labibah Raihanatul
+                a(href='#') 
+                    i.fa.fa-circle.text-success 
+                    | Online 
+        form(action='#',method='get').sidebar-form 
+            .input-group 
+                input(type='text', name='q',placeholder='Search...').form-control  
+                span.input-group-btn 
+                    button(type='submit', name='search')#search-btn.btn.btn-flat  
+                        i.fa-fa-search 
+        ul.sidebar-menu
+            li.header 
+                | Main Menu Peminjaman 
+            li.treeview 
+                a(href='pengajuan') 
+                    i.fa.fa-file-text-o 
+                    span 
+                        | Data Pengajuan 
+                    span.pull-right-container  
+            li
+                a(href='pengembalian') 
+                    i.fa.fa-file-text-o 
+                    span 
+                        | Data Pengembalian 
+                    span.pull-right-container  

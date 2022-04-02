@@ -1,0 +1,65 @@
+extends ../layout/base
+block content
+    section.content-header
+        h1
+            | Tambahkan 
+            small it all starts here
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    | Lainnya 
+                li.active Here
+    section.content
+        .box
+            .box-header.with-border
+                h3.box-title
+                    | Pengembalian 
+                .box-tools.pull-right
+                    button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+                        i.fa.fa-minus
+
+            .box-body
+                form(role='form',method='post' action='/pengembalian/add')
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', data-dismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label
+                                        | Nama Barang 
+                                    input(type='text',value='#{nama_barang}',name='nama_barang',placeholder='Masukkan Nama', autofocus).form-control
+                                .form-group
+                                    label
+                                        | Nama Peminjam
+                                    input(type='text',value='#{nama_peminjam}',name='nama_peminjam',placeholder='Masukkan Nama', autofocus).form-control
+                                .form-group
+                                    label
+                                        | Tgl Kembali 
+                                    input(type='text',name='tgl_kembali',placeholder='Masukkan Tgl Kembali').form-control
+                                .form-group
+                                    label
+                                        | Jatuh Tempo 
+                                    input(type='text',name='jatuh_tempo',placeholder='Masukkan Jatuh Tempo').form-control
+                                .form-group
+                                    label
+                                        | Jml Hari 
+                                    input(type='text',name='jml_hari',placeholder='Masukkan Jumlah Hari').form-control
+                                .form-group
+                                    label
+                                        | Total Denda 
+                                    input(type='text',name='total_denda',placeholder='Masukkan Total Denda').form-control
+                            .box-footer
+                                button(type='submit').btn.btn-primary
+                                    | Submit
+
+                                a(href='/pengembalian').btn.btn-primary.pull-right
+                                    | Back

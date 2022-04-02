@@ -1,0 +1,69 @@
+extends ../layout/base
+block content
+    section.content-header
+        h1
+            | Pengajuan 
+            small it all starts here
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    | Lainnya 
+                li.active Here
+    section.content
+        .box
+            .box-header.with-border
+                h3.box-title
+                    | Pengajuan 
+                .box-tools.pull-right
+                    button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+                        i.fa.fa-minus
+
+            .box-body
+                form(role='form',method='post' action='/pengajuan/add')
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', data-dismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label
+                                        | Nama Peminjam 
+                                    input(type='text',value='#{nama_peminjam}',name='nama_peminjam',placeholder='Masukkan Nama', autofocus).form-control
+                                .form-group
+                                    label
+                                        | No Telp 
+                                    input(type='text',name='no_telp',placeholder='Masukkan No Telp').form-control
+                                .form-group
+                                    label
+                                        | Nama Barang 
+                                    input(type='text',name='nama_barang',placeholder='Masukkan Nama Barang').form-control
+                                .form-group
+                                    label
+                                        | Jumlah 
+                                    input(type='text',name='jumlah',placeholder='Masukkan Jumlah').form-control
+                                .form-group
+                                    label
+                                        | Kondisi Barang 
+                                    input(type='text',name='kondisi_barang',placeholder='Masukkan Kondisi Barang').form-control
+                                .form-group 
+                                    label
+                                        | Tgl Pinjam
+                                    input(type='text',name='tgl_pinjam',placeholder='Masukkan Tgl Pinjam').form-control
+                                .form-group
+                                    label 
+                                        | Tgl Kembali
+                                    input(type='text',name='tgl_kembali',placeholder='Masukkan Tgl Kembali').form-control
+                            .box-footer
+                                button(type='submit').btn.btn-primary
+                                    | Submit
+
+                                a(href='/pengajuan').btn.btn-primary.pull-right
+                                    | Back

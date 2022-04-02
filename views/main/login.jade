@@ -1,0 +1,51 @@
+doctype html
+
+html
+	head
+		body.hold-transition.login-page(style="background: url('https://cdn.pixabay.com/photo/2017/05/09/13/33/laptop-2298286_960_720.png'); background-attachment:fixed;")
+		.row.col-md-12
+		title
+			| #{title}
+		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport')
+		link(rel='stylesheet', href='/adminlte/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/font-awesome/css/font-awesome.css')
+		link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css')
+		link(rel='stylesheet', href='/adminlte/dist/css/AdminLTE.min.css')
+		link(rel='stylesheet', href='/adminlte/plugins/iCheck/square/blue.css')
+	body.hold-transition.login-page
+		.login-box
+			.login-logo
+				a(href='#')
+					b
+					| Peminjaman
+					| Alat Praktik 
+			.login-box-body
+				p.login-box-msg
+					| Sign in to start your session
+				form(action="/login/",method="post")
+					- if (messages.msg_error) 
+						.alert.alert-danger.alert-dismissable 
+							button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+								| ×
+							h4
+								i.icon.fa.fa-ban
+								| Alert! 
+							| !{messages.msg_error}
+					.form-group.has-feedback
+						input(type="email",placeholder="Email",name="txtEmail").form-control
+						span.glyphicon.glyphicon-envelope.form-control-feedback
+					.form-group.has-feedback
+						input(type="password",placeholder="Password",name="txtPassword").form-control
+						span.glyphicon.glyphicon-lock.form-control-feedback
+					.row
+						.col-xs-4
+							button(type="submit").btn.btn-primary.btn-block.btn-flat
+								| Sign In 
+				br
+				a(href='/register').text-center
+					|	Register New Account
+
+script(type='text/javascript', src='/adminlte/plugins/jQuery/jquery-2.2.3.min.js')
+script(type='text/javascript', src='/adminlte/bootstrap/js/bootstrap.min.js')
+script(type='text/javascript', src='/adminlte/plugins/iCheck/icheck.min.js')
+script(type='text/javascript', src='/adminlte/dist/js/login.js')

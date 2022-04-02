@@ -1,0 +1,74 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		h1 
+			| Edit Pengembalian 
+			small menu for editing pengembalian data
+		ol.breadcrumb 
+			li 
+				a(href='#') 
+					i.fa.fa-dashboard
+					| Lainnya  
+			li.active Here 
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Pengembalian 
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+					
+			.box-body
+				form(role='form',method='post' action='/pengembalian/edit/#{(id==undefined) ? data.id : id}')
+					.row
+						
+						.col-xs-6
+							.box-body
+								- if (messages.msg_error) 
+									.alert.alert-danger.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Alert! 
+										| !{messages.msg_error}
+								- if (messages.msg_info) 
+									.alert.alert-success.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Success! 
+										| !{messages.msg_info}
+								.form-group
+									label
+										| Nama Barang 
+									input(type='text',value="#{data.nama_barang}",name='nama_barang',placeholder='Masukkan Nama', autofocus).form-control
+								.form-group
+									label
+										| Nama Peminjam 
+									input(type='text',value="#{data.nama_peminjam}",name='nama_peminjam',placeholder='Masukkan Nama', autofocus).form-control
+								.form-group
+									label
+										| Tgl Kembali 
+									input(type='text',value="#{ (tgl_kembali == undefined) ? data.tgl_kembali : tgl_kembali }",name='tgl_kembali',placeholder='Masukkan Tgl Kembali').form-control
+								.form-group
+									label
+										| Jatuh Tempo
+									input(type='text',value="#{ (jatuh_tempo == undefined) ? data.jatuh_tempo : jatuh_tempo }",name='jatuh_tempo',placeholder='Masukkan Jatuh Tempo').form-control
+								.form-group
+									label
+										| Jml Hari
+									input(type='text',value="#{ (jml_hari == undefined) ? data.jml_hari : tgl_masuk }",name='jml_hari',placeholder='Masukkan Jml Hari').form-control
+								.form-group
+									label
+										| Total Denda 
+									input(type='text',value="#{ (total_denda == undefined) ? data.total_denda : total_denda}",name='total_denda',placeholder='Masukkan Total Denda').form-control
+							.box-footer
+								input(type="hidden",name="_method", value="PUT")
+								button(type='submit').btn.btn-primary
+									i.fa.fa-pencil 
+									|  Edit
+								a(href='/pengembalian').btn.btn-primary.pull-right
+									| Back
